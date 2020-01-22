@@ -998,4 +998,12 @@ SELECT
 
 SELECT
     nomem AS "NOMBRE",
-    salar +(numhi-3)*(60) || ' €' AS "Salario Total" FROM temple WHERE numhi > (SELECT numhi FROM temple WHERE nomem = ';
+    salar +(numhi-3)*(60) || ' €' AS "Salario Total" FROM temple WHERE numhi >= (SELECT numhi FROM temple WHERE nomem LIKE '%JULIANA') ORDER BY numhi;
+
+-- Práctica 3 Ejercicio 10--
+
+SELECT nomem FROM temple WHERE salar > 1.15*(SELECT salar FROM temple WHERE nomem LIKE '%CLAUDIA');
+
+-- Práctica 3 Ejercicio 11--
+
+SELECT nomde FROM tdepto WHERE depde IS NULL;
