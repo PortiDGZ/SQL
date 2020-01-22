@@ -992,4 +992,9 @@ ORDER BY
 
 SELECT
     nomem AS "NOMBRE",
-    (salar + comis)+(numhi-3)*(60) || ' €' AS "Salario Total" FROM temple WHERE numhi IS NOT NULL;
+    (salar)+(numhi*60) -180 || ' €' AS "Salario Total" FROM temple WHERE numhi >= 4;
+    
+-- Práctica 3 Ejercicio 9--
+SELECT
+    nomem AS "NOMBRE",
+    (salar)+(numhi*60) -180 || ' €' AS "Salario Total" FROM temple WHERE ;
