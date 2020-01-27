@@ -130,7 +130,7 @@
     FROM
         temple
     WHERE
-        salar > 1.15 * (
+        salar >= 1.15 * (
             SELECT
                 salar
             FROM
