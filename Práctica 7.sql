@@ -26,5 +26,18 @@ WHERE
     )
 ORDER BY
     nomem;
-    
-SELECT nomde FROM tdepto WHERE direc IN (SELECT nomde FROM tdepto WHERE nomde LIKE '%, COMERCIAL' OR nomde LIKE 'PERSONAL');
+
+SELECT
+    nomde, direc
+FROM
+    tdepto
+WHERE
+    direc IN (
+        SELECT
+            direc
+        FROM
+            tdepto
+        WHERE
+            nomde LIKE '% COMERCIAL'
+            OR nomde LIKE 'PERSONAL'
+    )ORDER BY nomde;
