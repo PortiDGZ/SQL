@@ -17,7 +17,7 @@ FROM
     temple
 WHERE
     comis IS NOT NULL
+    AND numhi <> 0
     AND salar / numhi BETWEEN comis * 50 AND 720
-    AND numhi > 0
 ORDER BY
     nomem;
