@@ -1,3 +1,4 @@
+-- Práctica 9 Ejercicio 1 --
 SELECT
     nomem,
     comis
@@ -8,6 +9,8 @@ WHERE
     AND comis IS NOT NULL
 ORDER BY
     nomem;
+    
+    -- Práctica 9 Ejercicio 2 --
 
 SELECT
     nomde
@@ -16,6 +19,8 @@ FROM
 WHERE
     nomde NOT LIKE 'DIRECCIÓN %'
     AND nomde NOT LIKE 'SECTOR %';
+    
+    -- Práctica 9 Ejercicio 3 --
 
 SELECT
     nomem,
@@ -29,8 +34,24 @@ WHERE
          AND salar < 1000 )
 ORDER BY
     nomem;
+    
+    -- Práctica 9 Ejercicio 4 --
 
---SELECT numem, (salar+comis) FROM temple WHERE comis IS NOT NULL AND salar+comis >= ALL (SELECT salar FROM temple);
+SELECT
+    nomem,
+    ( salar + comis )
+FROM
+    temple
+WHERE
+    comis IS NOT NULL
+    AND salar + comis >= ALL (
+        SELECT
+            salar
+        FROM
+            temple
+    );
+    
+    -- Práctica 9 Ejercicio 5 --
 
 SELECT
     nomem,
@@ -51,6 +72,8 @@ WHERE
     )
 ORDER BY
     nomem;
+    
+    -- Práctica 9 Ejercicio 6 --
 
 SELECT
     nomde,
@@ -63,4 +86,3 @@ WHERE
     OR ( tidir LIKE 'P'
          AND ( presu > 30
                OR depde IS NULL ) );
-

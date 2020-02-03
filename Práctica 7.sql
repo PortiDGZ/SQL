@@ -1,3 +1,5 @@
+-- Práctica 7 Ejercicio 1 --
+
 SELECT
     nomem
 FROM
@@ -9,6 +11,8 @@ WHERE
     )
 ORDER BY
     nomem;
+
+-- Práctica 7 Ejercicio 2 --
 
 SELECT
     nomem
@@ -26,6 +30,8 @@ WHERE
     )
 ORDER BY
     nomem;
+
+-- Práctica 7 Ejercicio 3 --
 
 SELECT
     nomde, direc
