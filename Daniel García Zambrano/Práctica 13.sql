@@ -108,7 +108,21 @@ SELECT
             d.numde = numde
     ) AS "SALARIO MEDIO"
 FROM
-    tdepto d;
+    tdepto d
+WHERE
+    (
+        SELECT
+            trunc(AVG(salar), 2)
+        FROM
+            temple
+        WHERE
+            d.numde = numde
+    ) > (
+        SELECT
+            trunc(AVG(salar), 2)
+        FROM
+            temple
+    );
     
 -- EXTRA 3
 
@@ -154,16 +168,29 @@ WHERE
 -- EXTRA 4
 
 SELECT
-    nomde AS departamento,
     (
         SELECT
-            COUNT(DISTINCT extel)
+            nomde
         FROM
-            temple
+            tdepto
         WHERE
-            d.numde = numde
-    ) AS "EXTENSIONES DISTINTAS"
+            numde = e.numde
+            AND presu * 1000 > 35000
+    ) AS departamento,
+    extel AS extensión,
+    COUNT(*) AS empleados
 FROM
-    tdepto d
+    temple e
 WHERE
-    presu * 1000 > 35000;
+    (
+        SELECT
+            nomde
+        FROM
+            tdepto
+        WHERE
+            numde = e.numde
+            AND presu * 1000 > 35000
+    ) IS NOT NULL
+GROUP BY
+    numde,
+    extel;

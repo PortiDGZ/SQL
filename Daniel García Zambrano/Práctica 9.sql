@@ -1,8 +1,8 @@
 -- EJERCICIO 1
 
 SELECT
-    nomem   AS nombre,
-    comis   AS comisión
+    nomem AS nombre,
+    nvl(comis, 0) AS comisión
 FROM
     temple
 WHERE
@@ -21,16 +21,12 @@ ORDER BY
 -- EJERCICIO 2
 
 SELECT
-    nomem AS nombre
+    nomde AS departamento
 FROM
-    temple
+    tdepto
 WHERE
-    numde NOT IN (
-        100,
-        110,
-        111,
-        112
-    )
+    nomde NOT LIKE '%DIRECCIÓN%'
+    AND nomde NOT LIKE '%SECTOR%'
 ORDER BY
     1;
     

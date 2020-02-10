@@ -23,7 +23,7 @@ GROUP BY
 -- EJERCICIO 3
 
 SELECT DISTINCT
-    comis AS comisión,
+    NVL (comis, 0) AS comisión,
     trunc(AVG(salar), 2) AS "SALARIO MEDIO",
     trunc(AVG(round(months_between(sysdate, fecna) / 12))) AS "EDAD MEDIA"
 FROM
@@ -34,7 +34,7 @@ GROUP BY
 -- EJERCICIO 4
 
 SELECT DISTINCT
-    comis AS comisión,
+    NVL (comis, 0) AS comisión,
     trunc(AVG(salar), 2) AS "SALARIO MEDIO",
     trunc(AVG(trunc(months_between(sysdate, fecna) / 12))) AS "EDAD MEDIA"
 FROM
@@ -46,7 +46,7 @@ GROUP BY
 
 SELECT DISTINCT
     numde   AS departmento,
-    comis   AS comisión,
+    NVL (comis, 0)   AS comisión,
     trunc(AVG(salar), 2) AS "SALARIO MEDIO",
     trunc(AVG(trunc(months_between(sysdate, fecna) / 12))) AS "EDAD MEDIA"
 FROM
