@@ -22,35 +22,55 @@ GROUP BY
 -- Práctica 12 Ejercicio 3 --
 
 SELECT
-    comis,
-    trunc(AVG(salar), 2),
-    round(AVG(months_between(sysdate, fecna) / 12))
+    comis AS "COMISIÓN",
+    trunc(AVG(salar), 2) AS "SALARIO MEDIO",
+    round(AVG(months_between(sysdate, fecna) / 12)) AS "EDAD MEDIA"
 FROM
     temple
 GROUP BY
-    comis;
+    comis 
+ORDER BY 1;
 
 -- Práctica 12 Ejercicio 4 --
 
 SELECT
-    comis,
-    trunc(AVG(salar), 2),
-    trunc(AVG(months_between(sysdate, fecna) / 12))
+    comis AS "COMISIÓN",
+    trunc(AVG(salar), 2) AS "SALARIO MEDIO",
+    trunc(AVG(months_between(sysdate, fecna) / 12)) AS "EDAD CUMPLIDA"
 FROM
     temple
 GROUP BY
     comis;
 
--- Práctica 13 Ejercicio 5 --
+-- Práctica 12 Ejercicio 5 --
 
 SELECT
-    numde,
-    trunc(AVG(salar), 2),
-    trunc(AVG(months_between(sysdate, fecna) / 12))
+    numde AS "NÚMERO DE DEPARTAMENTO",
+    comis AS "COMISIÓN",
+    trunc(AVG(salar), 2) AS "SALARIO MEDIO",
+    trunc(AVG(months_between(sysdate, fecna) / 12)) AS "EDAD MEDIA"
 FROM
     temple
 GROUP BY
-    numde,comis;
-    -- Práctica 13 Ejercicio 6 --
+    numde,
+    comis
+ORDER BY 1;
+    -- Práctica 12 Ejercicio 6 --
 
-SELECT numde, COUNT(numem), SUM(salar) FROM temple WHERE salar > 2500 group by numde;
+SELECT
+    numde,
+    COUNT(numem),
+    SUM(salar)
+FROM
+    temple
+WHERE
+    numde IN (
+        SELECT
+            numde
+        FROM
+            temple
+        WHERE
+            salar > 2500
+    )
+GROUP BY
+    numde;
