@@ -1,14 +1,16 @@
 -- Práctica 14 Ejercicio 1 --
 SELECT
-    COUNT(numem) AS "NÚMERO DE EMPLEADOS",
-    SUM(numhi) AS hijos
+    e.nomem,
+    e.numhi,
+    d.direc,
+    e.numem,
+    d.tidir
 FROM
     tdepto   d
-    JOIN temple   e ON d.numde = e.numde
+    JOIN temple   e ON d.direc= e.numem
 WHERE
     tidir = 'F'
-GROUP BY
-    e.numde;
+ORDER BY e.nomem;
 
 -- Práctica 14 Ejercicio 2 --
          

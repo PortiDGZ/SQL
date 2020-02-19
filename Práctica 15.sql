@@ -1,0 +1,1 @@
+CREATE VIEW VISTA1 AS(select numem, nomem, salar, comis from temple where numde=111);
